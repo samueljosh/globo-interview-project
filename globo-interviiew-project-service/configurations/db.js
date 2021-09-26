@@ -7,3 +7,4 @@ const globoDbConfig = new Sequelize({
 });
 
 module.exports = globoDbConfig;
+
