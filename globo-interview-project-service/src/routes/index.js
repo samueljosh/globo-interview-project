@@ -1,4 +1,4 @@
-const { getAll, insert, remove, update, login } = require('./service/User')
+const { getAll, insert, remove, update, login } = require('../service/User')
 
 module.exports = function (app) {
 

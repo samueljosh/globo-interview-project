@@ -5,10 +5,10 @@ const helmet = require('helmet');
 const morgan = require('morgan');
 const swaggerUi = require('swagger-ui-express')
 const swaggerFile = require('./swagger_output.json')
-const db = require('./configurations/db')
+const db = require('./src/configurations/db')
 const app = express();
 
-app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile))
+app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 
 app.use(helmet());
 
@@ -18,7 +18,7 @@ app.use(morgan('combined'));
 
 app.use(bodyParser.json());
 
-require('./endpoints')(app)
+require('./src/routes/index')(app)
 
 // starting the server
 db.sync().then(() => {

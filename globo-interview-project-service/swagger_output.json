@@ -162,8 +162,8 @@
           "200": {
             "description": "OK"
           },
-          "500": {
-            "description": "Internal Server Error"
+          "404": {
+            "description": "Not Found"
           }
         }
       }
