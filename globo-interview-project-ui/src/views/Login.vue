@@ -35,16 +35,16 @@ export default {
     ...mapActions(["LogIn"]),
     async submit() {
       const User = new FormData();
-      console.log('formulario',this.form)
+      console.log("formulario", this.form);
       User.append("email", this.form.email);
       User.append("password", this.form.password);
-      console.log('enviando formulario',User)
+      console.log("enviando formulario", User);
       try {
-          await this.LogIn(User);
-          this.$router.push("/");
-          this.showError = true
+        await this.LogIn(User);
+        this.$router.push("/");
+        this.showError = false;
       } catch (error) {
-        this.showError = true
+        this.showError = true;
       }
     },
   },
@@ -55,8 +55,8 @@ export default {
 * {
   box-sizing: border-box;
 }
-.login{
-  top:0%;
+.login {
+  top: 0%;
   margin: 0px;
   padding: 0px;
 }

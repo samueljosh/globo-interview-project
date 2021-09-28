@@ -23,14 +23,18 @@ app.use(function(req, res, next) {
   next();
 });
 
+app.get('/', (req, res) => {
+  res.send('App works!')
+})
 
 app.use(bodyParser.json());
 
 require('./src/routes/index')(app)
+const port = process.env.PORT || 3000
 
 // starting the server
 db.sync().then(() => {
-  app.listen(3000, () => {
+  app.listen(port, () => {
     console.log('listening on port 3000');
   });
 

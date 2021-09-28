@@ -43,26 +43,26 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
     if (to.matched.some((record) => record.meta.requiresAuth)) {
-        if (store.getters.isAuthenticated) {
-            next();
-            return;
-        }
-        next("/login");
-    } else {
+      if (store.getters.isAuthenticated) {
         next();
+        return;
+      }
+      next("/login");
+    } else {
+      next();
     }
-});
-
-router.beforeEach((to, from, next) => {
+  });
+  
+  router.beforeEach((to, from, next) => {
     if (to.matched.some((record) => record.meta.guest)) {
-        if (store.getters.isAuthenticated) {
-            next();
-            return;
-        }
+      if (store.getters.isAuthenticated) {
         next();
+        return;
+      }
+      next();
     } else {
-        next();
+      next();
     }
-});
+  });
 
 export default router;

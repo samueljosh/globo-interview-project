@@ -1,7 +1,7 @@
 <template>
   <v-navigation-drawer permanent expand-on-hover app dark>
     <v-list>
-      <a href="https://github.com/samueljosh">
+      <a href="https://github.com/samueljosh/globo-interview-project">
         <v-list-item class="px-2" v-if="isLoggedIn">
           <v-list-item-avatar>
             <v-img src="https://github.com/samueljosh.png"></v-img>

@@ -16,6 +16,9 @@ const actions = {
 
     async LogIn({ commit }, user) {
         const response = await axios.post("login", (Object.fromEntries(user)))
+        if(!response.data.valid){
+            throw new Error("invalid login")
+        }
         console.log('logando', response)
         await commit("setUser", response.data.valid);
         await commit("setLevelAccess", response.data.levelAccess)
