@@ -14,6 +14,7 @@ module.exports = function (app) {
     })
 
     app.post('/login', async (req, res) => {
+        console.log('logando', req.body)
         res.setHeader('Content-Type', 'application/json')
         const { email, password } = req.body
         const loginResponse = await login(email, password)

@@ -1,33 +1,27 @@
-import Vue from 'vue'
-import App from './App.vue'
-import Router from 'vue-router'
-import Monitor from './screens/Perfomance/Monitor.vue'
-import Menu from './components/Menu.vue'
-import Vuetify from 'vuetify'
-import 'vuetify/dist/vuetify.min.css' // Ensure you are using css-loader
+import Vue from "vue";
+import App from "./App.vue";
+import router from "./router";
+import store from "./store";
+import axios from "axios";
 
-Vue.use(Vuetify)
-Vue.use(Router)
+// axios.defaults.withCredentials = true;
+axios.defaults.baseURL = 'http://localhost:3000/';
 
-const router = new Router({
- routes: [
+axios.interceptors.response.use(undefined, function(error) {
+  if (error) {
+    const originalRequest = error.config;
+    if (error.response.status === 401 && !originalRequest._retry) {
+      originalRequest._retry = true;
+      store.dispatch("LogOut");
+      return router.push("/login");
+    }
+  }
+});
 
-   {
-     path: '/menu/:id',
-     name:'menu',
-     component: Menu,
-     props: true,
-   },
-   {
-    path: '/',
-    name:'monitor',
-    component:Monitor
-  },
- ]
-})
+Vue.config.productionTip = false;
 
 new Vue({
- el: '#app',
- render: h => h(App),
- router
-})
+  store,
+  router,
+  render: (h) => h(App),
+}).$mount("#app");
