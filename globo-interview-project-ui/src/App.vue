@@ -1,12 +1,16 @@
 
 <template>
-  <div id="app">
-    <header>
-      <h1 id="header-globo">Globo SPA Interview Project</h1>
-    </header>
+  <v-app> 
+    <v-app-bar app color="#c4170c">
+      <div id="header-globo">Globo SPA Interview Project</div>
+    </v-app-bar>
     <NavBar />
-    <router-view />
-  </div>
+    <v-main>
+      <v-container fluid>
+        <router-view />
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
@@ -26,6 +30,9 @@ export default {
   src: local("rede-globo-bold"),
     url("./assets/rede-globo-bold.ttf") format("truetype");
 }
+a {
+  text-decoration: none;
+},
 header {
   display: flex;
   margin-top: 10px;

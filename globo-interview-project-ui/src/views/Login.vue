@@ -41,8 +41,8 @@ export default {
       console.log('enviando formulario',User)
       try {
           await this.LogIn(User);
-          this.$router.push("/monitor");
-          this.showError = false
+          this.$router.push("/");
+          this.showError = true
       } catch (error) {
         this.showError = true
       }
@@ -54,6 +54,11 @@ export default {
 <style scoped>
 * {
   box-sizing: border-box;
+}
+.login{
+  top:0%;
+  margin: 0px;
+  padding: 0px;
 }
 label {
   padding: 12px 12px 12px 0;

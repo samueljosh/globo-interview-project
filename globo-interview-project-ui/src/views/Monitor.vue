@@ -17,7 +17,7 @@
 
       <div class="globo-monitor-card" v-if="clusterStatus">
         <div>
-          Cluster Status :
+         AWS Cluster Status :
           <div :class="statusClusterColor">{{ clusterStatus }}</div>
         </div>
       </div>
@@ -39,7 +39,9 @@ export default {
   computed: {
     statusClusterColor() {
       return {
-        statusGreen: true,
+        statusGreen: this.clusterStatus === "green",
+        statusYellow: this.clusterStatus === "yellow",
+        statusRed: this.clusterStatus === "red",
       };
     },
     ...mapGetters({
@@ -68,6 +70,12 @@ export default {
 }
 .statusGreen {
   background-color: green;
+}
+.statusYellow {
+  background-color: yellow;
+}
+.statusRed {
+  background-color: red;
 }
 .s1-2 {
   width: calc(50% - 8px);

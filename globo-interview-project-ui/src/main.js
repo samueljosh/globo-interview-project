@@ -3,6 +3,7 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import axios from "axios";
+import vuetify from '@/plugins/vuetify' // path to vuetify export
 
 // axios.defaults.withCredentials = true;
 axios.defaults.baseURL = 'http://localhost:3000/';
@@ -23,5 +24,6 @@ Vue.config.productionTip = false;
 new Vue({
   store,
   router,
+  vuetify,
   render: (h) => h(App),
 }).$mount("#app");

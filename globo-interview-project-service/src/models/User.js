@@ -19,8 +19,8 @@ const userModel = database.define('user', {
         allowNull: false
     },
     levelAccess: {
-        type: Sequelize.ENUM(0 ,1),
-        defaultValue:0,
+        type: Sequelize.ENUM("Administrador" ,"Funcionário"),
+        defaultValue:"Administrador",
         allowNull:false
     }
 })

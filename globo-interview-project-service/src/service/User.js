@@ -13,19 +13,10 @@ async function insert(user) {
 
 async function update(user) {
     try {
-        const { id } = user
-        let userMatched = await User.findByPk(id)
-        if (userMatched) {
-            console.log('usuario encontrado',userMatched)
-            userMatched = user
-            console.log('usuario atualizado',user)
-            const res = await user.save();
-            return res;
+        const { id, ...userRest } = user
+        let response = await User.update(userRest, { where: { id } })
+        return response
 
-        }
-        else {
-            throw new Error("user not found");
-        }
     }
     catch (err) {
         console.log('error', err)
@@ -63,11 +54,11 @@ async function login(email, password) {
         if (user.password !== password) {
             return { valid: false, message: 'Incorrect password!' }
         }
-        return { valid: true, message: 'Login valid! :)' }
+        return { valid: true, message: 'Logado! :)', levelAccess: user.levelAccess }
     }
     catch {
         console.log(err)
-        return { valid: true, message: err }
+        return { valid: false, message: err }
 
     }
 }
