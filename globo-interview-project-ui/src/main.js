@@ -6,8 +6,7 @@ import axios from "axios";
 import vuetify from '@/plugins/vuetify' // path to vuetify export
 
 // axios.defaults.withCredentials = true;
-// TODO mover para variavel de ambiente
-axios.defaults.baseURL = 'https://globo-interview-api.azurewebsites.net/';
+axios.defaults.baseURL = 'http://localhost:3000/';
 
 axios.interceptors.response.use(undefined, function(error) {
   if (error) {

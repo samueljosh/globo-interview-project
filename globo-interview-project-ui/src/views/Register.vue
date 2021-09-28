@@ -1,5 +1,6 @@
 <template>
   <v-data-table
+    v-if="users"
     :headers="headers"
     :items="users"
     sort-by="id"
