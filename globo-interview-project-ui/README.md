@@ -2,7 +2,17 @@
 # Logins para teste:
  > administrador@hotmail.com senha: 123456
  > funcionario@live.com senha: 123456
+   Front :
 
+   https://globovuepro.z13.web.core.windows.net/login
+
+   Back:
+
+   https://globo-interview-api.azurewebsites.net/doc (swagger)
+
+   Github:
+
+   https://github.com/samueljosh/globo-interview-project
 # globo-interview-project
 
 > Project that shows graphs about cpu usage, memory usage and AWS cluster status
