@@ -3,6 +3,7 @@
     v-if="users"
     :headers="headers"
     :items="users"
+    :footer-props="{ itemsPerPageText: 'Linhas por página' }"
     sort-by="id"
     class="elevation-1"
   >
@@ -69,7 +70,11 @@
                 color="blue darken-1"
                 text
                 @click="save"
-                :disabled=" editedItem  && editedItem.password && editedItem.password.length < 5"
+                :disabled="
+                  editedItem &&
+                  editedItem.password &&
+                  editedItem.password.length < 5
+                "
               >
                 Salvar
               </v-btn>
@@ -142,7 +147,7 @@ export default {
         (v && v.length >= 6) || "A Senha deve possuir ao menos 6 caracteres",
     ],
     levelAccessRules: [
-       (v) =>
+      (v) =>
         (v && v.length >= 1) || "É necessário selecionar um nível de acesso",
     ],
     emailRules: [
@@ -185,7 +190,7 @@ export default {
     },
 
     deleteItem(item) {
-      console.log('deletando',item)
+      console.log("deletando", item);
       this.editedIndex = this.users.indexOf(item);
       this.editedItem = item.id;
       this.dialogDelete = true;
