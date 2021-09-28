@@ -2,7 +2,8 @@
 # Logins para teste:
  > administrador@hotmail.com senha: 123456
  > funcionario@live.com senha: 123456
-   Front :
+  
+  Front :
 
    https://globovuepro.z13.web.core.windows.net/login
 
