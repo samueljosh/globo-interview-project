@@ -1,3 +1,8 @@
+
+# Logins para teste:
+ > administrador@hotmail.com senha: 123456
+ > funcionario@live.com senha: 123456
+
 # globo-interview-project
 
 > Project that shows graphs about cpu usage, memory usage and AWS cluster status
